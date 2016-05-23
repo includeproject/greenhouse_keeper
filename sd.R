@@ -1,5 +1,4 @@
 
-
 temp = scan("temperature.data")
 # Create 1000 random numbers 
 # Use mean and standard deviation
@@ -14,9 +13,13 @@ temp_sd <- sd(temp, na.rm = FALSE)
 print("Standard Deviation: ")
 print(temp_sd)
 
+png(filename="plot.png")
+
+
 plot(temp, main="Scatterplot Example", 
     xlab="Time", ylab="Temperature")
 
 temp_data <- as.data.frame(temp)
 abline(lm(temp ~ ., data = temp_data), col="red")
 
+dev.copy(jpeg,filename="plot.jpg");
